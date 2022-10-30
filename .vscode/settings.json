@@ -15,6 +15,7 @@
         "doctoc",
         "ggshield",
         "gitguardian",
+        "golangci",
         "gomod",
         "gopath",
         "goroot",
