@@ -1,5 +1,5 @@
 ci:
-    skip: [ggshield]
+    skip: [ggshield, golangci-lint-repo-mod]
 
 repos:
 
