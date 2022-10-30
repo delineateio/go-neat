@@ -1,0 +1,6 @@
+.terraform/
+
+*.env
+terraform.tfstate
+.DS_Store
+.dccache

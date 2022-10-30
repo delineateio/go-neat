@@ -1,0 +1,19 @@
+version: 3
+
+tasks:
+  init:
+    desc: initialise terraform
+    cmds:
+      - terraform -chdir=ops/cloud/{{ .LAYER}} init -reconfigure -upgrade -backend-config=../config/remote.tfbackend
+
+  plan:
+    desc: run terraform plan
+    deps: ["init"]
+    cmds:
+      - terraform -chdir=ops/cloud/{{ .LAYER}} plan
+
+  apply:
+    desc: run terraform apply and auto applies
+    deps: ["init"]
+    cmds:
+      - terraform -chdir=ops/cloud/{{ .LAYER}} apply -auto-approve

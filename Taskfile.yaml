@@ -1,0 +1,28 @@
+version: 3
+
+silent: true
+
+includes:
+  cloud: ./ops/taskfile.cloud.yaml
+  local: ./ops/taskfile.local.yaml
+
+tasks:
+  init:
+    desc: initialise local environment
+    cmds:
+      - task: pre-commit:init
+      - task: todo
+
+  pre-commit:init:
+    desc: initialises pre-commit hooks
+    silent: true
+    cmds:
+      - pre-commit autoupdate &>/dev/null &
+      - pre-commit install install &>/dev/null &
+
+  todo:
+    desc: show to do list to
+    cmds:
+      - glow TODO.md
+    preconditions:
+      - stat TODO.md
