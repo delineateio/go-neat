@@ -1,8 +1,8 @@
 # TODO List
 
-* [ ] Configure [devcontainer.json](.devcontainer/devcontainer.json)
-* [ ] Configure [codeql.yml)](.github/workflows/codeql.yml)
-* [ ] Configure [snyk_iac.yml](.github/workflows/snyk_iac.yml)
-* [ ] Configure [dependabot.yml](.github/dependabot.yml)
-* [ ] Configure [.pre-commit-config.yaml](.pre-commit-config.yaml)
+* [x] Configure [devcontainer.json](.devcontainer/devcontainer.json)
+* [x] Configure [codeql.yml)](.github/workflows/codeql.yml)
+* [x] Configure [snyk_iac.yml](.github/workflows/snyk_iac.yml)
+* [x] Configure [dependabot.yml](.github/dependabot.yml)
+* [x] Configure [.pre-commit-config.yaml](.pre-commit-config.yaml)
 * [ ] Update [readme.md](README.md)

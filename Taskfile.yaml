@@ -20,6 +20,13 @@ tasks:
       - pre-commit autoupdate &>/dev/null &
       - pre-commit install install &>/dev/null &
 
+  pre-commit:run:
+    desc: run pre-commit hooks
+    silent: true
+    deps: ["pre-commit:init"]
+    cmds:
+      - pre-commit run --all-files
+
   todo:
     desc: show to do list to
     cmds:

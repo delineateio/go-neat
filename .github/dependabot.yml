@@ -9,7 +9,7 @@ updates:
     directory: "/.devcontainer"
     schedule:
       interval: "daily"
-  - package-ecosystem: "terraform"
-    directory: "/ops/cloud/component"
+  - package-ecosystem: "gomod"
+    directory: "/"
     schedule:
       interval: "daily"
