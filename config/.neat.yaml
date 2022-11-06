@@ -1,0 +1,12 @@
+automation: false
+log:
+  level: debug # info | warn | error
+  sinks:
+    - file
+    # - console
+  file:
+    dir: .logs/.neat
+    filename: neat.log
+    size_mb: 1
+    backups: 3
+    age_days: 10

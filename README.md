@@ -38,9 +38,6 @@
 - [Getting Started](#getting-started)
   - [Local Setup](#local-setup)
 - [Usage](#usage)
-- [Infrastructure](#infrastructure)
-  - [Local Services](#local-services)
-  - [Cloud Infrastructure](#cloud-infrastructure)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -65,9 +62,6 @@ Further logos can be inserted to highlight the specific technologies used to cre
 | ![pre-commit](https://img.shields.io/badge/precommit-%235835CC.svg?style=for-the-badge&logo=precommit&logoColor=white) | Pre-commit `git` hooks that perform checks before pushes|
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | Source control management platform  |
 | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | Containerise applications and provide local environment |
-| ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) | Cloud infrastructure provisioning configuration|
-| ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | Security and DNS services for internet services|
-| ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) | Hosting of services on Google Cloud |
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -82,32 +76,6 @@ This repo follows the principle of minimal manual setup of the local development
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-## Infrastructure
-
-### Local Services
-
-A boilerplate `docker-compose` file is provided that can be used to manage local environment services.  The stack can be found at `ops/local/stack.yaml`.
-
-```shell
-# stands up the local services
-task local:up
-
-# tears down the local services
-task local:down
-```
-
-### Cloud Infrastructure
-
-A boilerplate configuration is provided for using `terraform` configuration to provision cloud infrastructure.  [tfenv](https://github.com/tfutils/tfenv) is used to select the version of `terraform` to use.  The repo template provides a single component in `ops/cloud/component`.
-
-```shell
-# plans the network terraform config
-task cloud:plan LAYER=component
-
-# auto approves applying the network terraform config
-task cloud:apply LAYER=component
-```
 
 <!-- ROADMAP -->
 ## Roadmap

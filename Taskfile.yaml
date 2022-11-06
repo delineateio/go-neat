@@ -2,30 +2,48 @@ version: 3
 
 silent: true
 
-includes:
-  cloud: ./ops/taskfile.cloud.yaml
-  local: ./ops/taskfile.local.yaml
-
 tasks:
   init:
     desc: initialise local environment
     cmds:
       - task: pre-commit:init
+      - task: test:global
+      - task: test:repo
       - task: todo
 
   pre-commit:init:
     desc: initialises pre-commit hooks
-    silent: true
     cmds:
-      - pre-commit autoupdate &>/dev/null &
-      - pre-commit install install &>/dev/null &
+      - pre-commit autoupdate
+      - pre-commit install
 
   pre-commit:run:
     desc: run pre-commit hooks
-    silent: true
     deps: ["pre-commit:init"]
     cmds:
       - pre-commit run --all-files
+
+  test:global:
+    desc: creates test repo
+    cmds:
+      - cp ./config/.neat.yaml ~/.config/.neat.yaml
+
+  test:repo:
+    desc: creates test repo
+    cmds:
+      - rm -rf $GIT_WORK_TREE
+      - git init $GIT_WORK_TREE
+      - cp -a ./test/. $GIT_WORK_TREE
+      - git add .
+      - git commit -m 'something'
+    env:
+        GIT_WORK_TREE: /tmp/go-neat-test
+        GIT_DIR: /tmp/go-neat-test/.git
+
+  build:
+    desc: builds the packages using goreleaser
+    cmds:
+      - goreleaser build --rm-dist --snapshot
 
   todo:
     desc: show to do list to

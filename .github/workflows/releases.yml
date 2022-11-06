@@ -1,0 +1,36 @@
+name: 'goreleaser'
+on:
+  push:
+    branches: [ "main" ]
+    tags:
+      - '*'
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+      - name: Generate changelog
+        id: changelog
+        run: |
+          echo "::set-output name=tag-name::${GITHUB_REF#refs/tags/}"
+          gh api repos/$GITHUB_REPOSITORY/releases/generate-notes \
+            -f tag_name="${GITHUB_REF#refs/tags/}" \
+            -f target_commitish=trunk \
+            -q .body > CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{secrets.GORELEASER_TOKEN}}
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v3
+        with:
+          distribution: goreleaser
+          version: v0.174.1
+          args: release --rm-dist --release-notes=CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GORELEASER_TOKEN }}
