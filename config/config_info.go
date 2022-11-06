@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
+	e "github.com/delineateio/go-neat/errors"
 	o "github.com/elliotchance/orderedmap/v2"
-	e "go.delineate.io/neat/errors"
 )
 
 type ConfigInfo struct {

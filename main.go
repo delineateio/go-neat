@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"go.delineate.io/neat/cmd"
+	"github.com/delineateio/go-neat/cmd"
 )
 
 func main() {

@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/AlecAivazis/survey/v2"
+	e "github.com/delineateio/go-neat/errors"
 	"github.com/fatih/color"
-	e "go.delineate.io/neat/errors"
 )
 
 const tick = "\u2713"

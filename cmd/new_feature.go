@@ -1,12 +1,12 @@
 package cmd
 
 import (
+	c "github.com/delineateio/go-neat/config"
+	e "github.com/delineateio/go-neat/errors"
+	g "github.com/delineateio/go-neat/git"
+	u "github.com/delineateio/go-neat/ui"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	c "go.delineate.io/neat/config"
-	e "go.delineate.io/neat/errors"
-	g "go.delineate.io/neat/git"
-	u "go.delineate.io/neat/ui"
 )
 
 type newFeatureContext struct {

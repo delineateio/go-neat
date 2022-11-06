@@ -3,9 +3,9 @@ package cmd
 import (
 	"os"
 
+	c "github.com/delineateio/go-neat/config"
+	l "github.com/delineateio/go-neat/logging"
 	"github.com/spf13/cobra"
-	c "go.delineate.io/neat/config"
-	l "go.delineate.io/neat/logging"
 )
 
 var neatCmd = &cobra.Command{

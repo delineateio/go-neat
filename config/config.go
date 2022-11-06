@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"path/filepath"
 
+	e "github.com/delineateio/go-neat/errors"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
-	e "go.delineate.io/neat/errors"
 )
 
 func ReadGlobalConfig() {
