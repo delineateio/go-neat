@@ -12,16 +12,14 @@
   <h2 align="center">delineate.io</h2>
   <p align="center">portray or describe (something) precisely.</p>
 
-  <h3 align="center">[PROJECT_TITLE]</h3>
+  <h3 align="center">neat</h3>
 
   <p align="center">
-    [PROJECT_DESCRIPTION]
+    Small CLI for opinionated developer workflow
     <br />
     <a href="https://github.com/delineateio/oss-template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/delineateio/oss-template">View Demo</a>
-    ·
     <a href="https://github.com/delineateio/oss-template/issues">Report Bug</a>
     ·
     <a href="https://github.com/delineateio/oss-template/issues">Request Feature</a>
@@ -36,8 +34,8 @@
 - [About The Project](#about-the-project)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
-  - [Local Setup](#local-setup)
-- [Usage](#usage)
+- [Configuration](#configuration)
+- [CLI Usage](#cli-usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -48,10 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The repo description should be added here and describe at least:
-
-* Purpose of the repo e.g. problem/opportunity statement
-* High level description of the overall approach/solution
+An opinionated CLI that enable repetable sets of commands and common tasks be automated locally while developing software.
 
 ## Built With
 
@@ -63,19 +58,66 @@ Further logos can be inserted to highlight the specific technologies used to cre
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | Source control management platform  |
 | ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | Containerise applications and provide local environment |
 
+A series of Go packages have been used to build up `neat`:
+
+| Syntax | Description |
+| --- | ----------- |
+|[cobra](github.com/spf13/cobra)| Provides the CLI framework for `neat` |
+|[survey](github.com/AlecAivazis/survey)| Provides ability to capture input |
+|[color](github.com/fatih/colo)| Enables console colored output |
+|[go-git](https://github.com/go-git/go-git)| Fully functionaing package for `git`|
+|[viper](https://github.com/spf13/viper)|  Configuration package for managing config |
+|[zerolog](https://github.com/rs/zerolog)| Simple high performance logging framework |
+|[lumberjack](https://github.com/natefinch/lumberjack)| Rolling log file management compatible with `zerolog`|
+|[orderedmap](https://github.com/elliotchance/orderedmap)| Provides missingdata structure for ordered maps|
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+This repo follows the principle of minimal manual setup of the local development environment, and utilises [devcontainer](https://containers.dev/) in [vscode](https://code.visualstudio.com/).
 
-### Local Setup
+In addition a [taskfile](https://taskfile.dev) provides commonly required commands, these can be listed using `task --list`.
 
-This repo follows the principle of minimal manual setup of the local development environment, and utilises [devcontainer](https://containers.dev/).
+## Configuration
+
+The global config file is expected to be located at `~/.config/.neat.yaml`
+
+```yml
+automation: false
+log:
+  level: debug # info | warn | error
+  sinks: # file | console
+    - file
+  file:
+    dir: .logs/.neat
+    filename: neat.log
+    size_mb: 1
+    backups: 3
+    age_days: 10
+```
+
+For each `git` repo where you want to use `neat` the following file should be present.
+
+```yaml
+git:
+  branches:
+    default: main
+    prune: auto # none | select | auto
+```
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## CLI Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+```shell
+# displays help for neat
+neat -h
+
+# creates a new branch in the existing repo
+neat new feature -n 'new-client-design'
+
+# creates a new branch in a different repo
+neat new feature -n 'another-feature'
+```
 
 <!-- ROADMAP -->
 ## Roadmap
