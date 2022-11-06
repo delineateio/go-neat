@@ -1,4 +1,4 @@
-module go.delineate.io/neat
+module github.com/delineateio/go-neat
 
 go 1.18
 

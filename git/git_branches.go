@@ -1,7 +1,7 @@
 package git
 
 import (
-	e "go.delineate.io/neat/errors"
+	e "github.com/delineateio/go-neat/errors"
 )
 
 type GitBranches map[string]GitBranch

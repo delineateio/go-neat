@@ -4,12 +4,12 @@ import (
 	"path/filepath"
 	"strings"
 
+	c "github.com/delineateio/go-neat/config"
+	e "github.com/delineateio/go-neat/errors"
+	u "github.com/delineateio/go-neat/ui"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/rs/zerolog/log"
-	c "go.delineate.io/neat/config"
-	e "go.delineate.io/neat/errors"
-	u "go.delineate.io/neat/ui"
 )
 
 type GitRepository struct {

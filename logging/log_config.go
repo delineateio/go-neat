@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	c "github.com/delineateio/go-neat/config"
+	e "github.com/delineateio/go-neat/errors"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	c "go.delineate.io/neat/config"
-	e "go.delineate.io/neat/errors"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
