@@ -8,3 +8,4 @@ pip install -r .devcontainer/requirements.txt
 
 # go installs ----------------------------------------------------
 go install github.com/charmbracelet/glow@latest
+go install github.com/goreleaser/goreleaser@latest

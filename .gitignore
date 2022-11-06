@@ -1,6 +1,6 @@
-.terraform/
+dist/
+__debug_bin
 
 *.env
-terraform.tfstate
 .DS_Store
 .dccache
