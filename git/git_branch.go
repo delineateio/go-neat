@@ -57,7 +57,7 @@ func (b *GitBranch) Checkout() *GitBranch {
 	e.CheckIfError(err, "failed to checkout '%s'", b.Name)
 
 	b.logBranchEvent("branch_checked_out")
-	u.Successful("succesfully checked out '%s'", b.Name)
+	u.Successful("successfully checked out '%s'", b.Name)
 	return b
 }
 
@@ -79,7 +79,7 @@ func (b *GitBranch) Pull() *GitBranch {
 	}
 
 	b.logBranchEvent("branch_pulled")
-	u.Successful("succesfully pulled '%s'", b.Name)
+	u.Successful("successfully pulled '%s'", b.Name)
 	return b
 }
 
@@ -88,5 +88,5 @@ func (b *GitBranch) Delete() {
 	e.CheckIfError(err, "failed to delete '%s'", b.Name)
 
 	b.logBranchEvent("branch_deleted")
-	u.Successful("succesfully deleted '%s'", b.Name)
+	u.Successful("successfully deleted '%s'", b.Name)
 }

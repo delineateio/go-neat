@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Aivazis",
         "Autobuild",
         "autodocstring",
         "autopep",
@@ -13,6 +14,7 @@
         "devcontainer",
         "devcontainers",
         "doctoc",
+        "fatih",
         "ggshield",
         "gitguardian",
         "goarch",
@@ -23,10 +25,13 @@
         "goreleaser",
         "goroot",
         "gruntfuggly",
+        "incpatch",
         "intellicode",
         "markdownlint",
         "mypy",
+        "natefinch",
         "njpwerner",
+        "orderedmap",
         "PTRACE",
         "pycodestyle",
         "pydocstyle",
@@ -34,6 +39,7 @@
         "pylance",
         "pylint",
         "seccomp",
+        "Strs",
         "Taskfile",
         "tfenv",
         "tfrc",
@@ -43,6 +49,8 @@
         "venv",
         "virtualenv",
         "visualstudioexptteam",
-        "yapf"
+        "Worktree",
+        "yapf",
+        "zerolog"
     ]
 }
