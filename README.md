@@ -69,7 +69,7 @@ A series of Go packages have been used to build up `neat`:
 |[viper](https://github.com/spf13/viper)|  Configuration package for managing config |
 |[zerolog](https://github.com/rs/zerolog)| Simple high performance logging framework |
 |[lumberjack](https://github.com/natefinch/lumberjack)| Rolling log file management compatible with `zerolog`|
-|[orderedmap](https://github.com/elliotchance/orderedmap)| Provides missingdata structure for ordered maps|
+|[orderedmap](https://github.com/elliotchance/orderedmap)| Provides missing data structure for ordered maps|
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -116,7 +116,7 @@ neat -h
 neat new feature -n 'new-client-design'
 
 # creates a new branch in a different repo
-neat new feature -n 'another-feature'
+neat new feature -n 'another-feature' -p /tmp/go-neat-test
 ```
 
 <!-- ROADMAP -->
