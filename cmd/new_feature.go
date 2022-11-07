@@ -22,13 +22,13 @@ func newFeatureNewContext() newFeatureContext {
 
 var newFeatureCmd = &cobra.Command{
 	Use:   "feature",
-	Short: "Creates a new feature and performs cleanup",
+	Short: "Creates a new feature and performs clean up",
 	Long: `
-Creates a new feature branch and performs cleanup:
+Creates a new feature branch and performs clean up:
 
 * Checks out the default branch
 * Pulls & fetches the default branch
-* Deletes any redundnat feature branches
+* Deletes any redundant feature branches
 * Creates a new feature branch ready for development`,
 
 	Run: func(cmd *cobra.Command, args []string) {
@@ -50,7 +50,7 @@ func init() {
 	newFeatureCmd.Flags().StringVarP(&newFeature.branchName, "name", "n", "", "name of the new branch to use")
 	newFeatureCmd.Flags().StringVarP(&newFeature.path, "path", "p", ".", "path of the git repository")
 	err := newFeatureCmd.MarkFlagRequired("name")
-	e.CheckIfError(err, "failed to initalise new feature command")
+	e.CheckIfError(err, "failed to initialise new feature command")
 }
 
 func newFeatureConfig(path string) {

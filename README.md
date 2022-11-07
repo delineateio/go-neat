@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-An opinionated CLI that enable repetable sets of commands and common tasks be automated locally while developing software.
+An opinionated CLI that enable repeatable sets of commands and common tasks be automated locally while developing software.
 
 ## Built With
 
@@ -64,8 +64,8 @@ A series of Go packages have been used to build up `neat`:
 | --- | ----------- |
 |[cobra](github.com/spf13/cobra)| Provides the CLI framework for `neat` |
 |[survey](github.com/AlecAivazis/survey)| Provides ability to capture input |
-|[color](github.com/fatih/colo)| Enables console colored output |
-|[go-git](https://github.com/go-git/go-git)| Fully functionaing package for `git`|
+|[color](github.com/fatih/colo)| Enables console coloured output |
+|[go-git](https://github.com/go-git/go-git)| Fully functioning package for `git`|
 |[viper](https://github.com/spf13/viper)|  Configuration package for managing config |
 |[zerolog](https://github.com/rs/zerolog)| Simple high performance logging framework |
 |[lumberjack](https://github.com/natefinch/lumberjack)| Rolling log file management compatible with `zerolog`|
