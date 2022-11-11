@@ -28,7 +28,7 @@ func NewDefaultConfigInfo(filename, path string) *ConfigInfo {
 
 func NewGlobalConfigInfo() *ConfigInfo {
 	dirname, err := os.UserHomeDir()
-	e.CheckIfError(err, "failed to retreive the home directory for the current user")
+	e.CheckIfError(err, "failed to retrieve the home directory for the current user")
 
 	return NewDefaultConfigInfo(".neat", filepath.Join(dirname, ".config")).
 		AddDefault("log.level", "info").
