@@ -80,7 +80,7 @@ func (r *GitRepository) CreateBranch(branchName string) *GitBranch {
 	}
 
 	headRef, err := r.Repo.Head()
-	e.CheckIfError(err, "failed to retireve the HEAD")
+	e.CheckIfError(err, "failed to retrieve the HEAD")
 
 	branchRef := plumbing.NewBranchReferenceName(branchName)
 	ref := plumbing.NewHashReference(branchRef, headRef.Hash())
