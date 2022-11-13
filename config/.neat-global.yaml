@@ -1,9 +1,7 @@
-automation: false
 log:
-  level: debug # info | warn | error
+  level: debug # debug | info | warn | error
   sinks:
-    - file
-    # - console
+    - file # file | console
   file:
     dir: .logs/.neat
     filename: neat.log

@@ -1,4 +1,3 @@
 git:
   branches:
-    default: main
     prune: auto

@@ -2,12 +2,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Package",
+            "name": "new-feature",
             "type": "go",
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/main.go",
             "args": ["new", "feature", "--name", "test-3", "--path", "/tmp/go-neat-test"]
-        }
+        },
+        {
+          "name": "refresh-repos",
+          "type": "go",
+          "request": "launch",
+          "mode": "auto",
+          "program": "${workspaceFolder}/main.go",
+          "args": ["refresh", "repos", "--path", "/tmp/github.com"]
+      },
+      {
+        "name": "init-repo",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/main.go",
+        "args": ["init", "repo"]
+      }
     ]
 }
