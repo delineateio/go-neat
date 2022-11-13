@@ -9,63 +9,47 @@ import (
 	"github.com/spf13/cobra"
 )
 
-type newFeatureContext struct {
-	branchName string
-	path       string
-}
-
-var newFeature = newFeatureNewContext()
-
-func newFeatureNewContext() newFeatureContext {
-	return newFeatureContext{}
-}
+var new_feature_name = ""
+var new_feature_path = "."
 
 var newFeatureCmd = &cobra.Command{
 	Use:   "feature",
 	Short: "Creates a new feature and performs clean up",
-	Long: `
-Creates a new feature branch and performs clean up:
-
-* Checks out the default branch
-* Pulls & fetches the default branch
-* Deletes any redundant feature branches
-* Creates a new feature branch ready for development`,
-
 	Run: func(cmd *cobra.Command, args []string) {
 
-		newFeatureConfig(newFeature.path)
+		config := getConfig(new_feature_path)
 
-		repo := g.NewGitRepository(newFeature.path)
+		repo := g.NewGitRepository(new_feature_path)
 		if !repo.Exists {
-			e.NewErr("'%s' is not a repository", newFeature.path)
+			e.NewErr("'%s' is not a repository", new_feature_path)
 		}
 
 		branches := repo.Branches()
 		branches.DefaultBranch().Checkout().Pull()
 
-		deleteBranches(branches)
-		repo.CreateBranch(newFeature.branchName).Checkout()
+		deleteBranches(branches, config)
+		repo.CreateBranch(new_feature_name).Checkout()
 	},
 }
 
 func init() {
 	newCmd.AddCommand(newFeatureCmd)
-	newFeatureCmd.Flags().StringVar(&newFeature.branchName, "name", "", "name of the new branch to use")
-	newFeatureCmd.Flags().StringVar(&newFeature.path, "path", ".", "path of the git repository")
-	err := newFeatureCmd.MarkFlagRequired("name")
-	e.CheckIfError(err, "failed to initialise new feature command")
+	addStrFlag(newFeatureCmd, "name", "name of the new feature", &new_feature_name)
+	addStrFlag(newFeatureCmd, "path", "path of the git repository", &new_feature_path)
+	addRequired("name")
 }
 
-func newFeatureConfig(path string) {
+func getConfig(path string) c.NeatConfig {
 
-	c.NewDefaultConfig(".neat", path).
-		AddDefault("git.branches.prune", "auto").
-		Merge()
+	i := c.NewDefaultConfig(".neat", path).
+		AddDefault("git.branches.prune", "auto")
+
+	return c.GetConfig(i)
 }
 
-func deleteBranches(branches *g.GitBranches) {
+func deleteBranches(branches *g.GitBranches, config c.NeatConfig) {
 
-	prune := c.GetString("git.branches.prune")
+	prune := config.GetString("branches.prune")
 	names := branches.NonDefaultNames()
 
 	switch prune {

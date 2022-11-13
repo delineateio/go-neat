@@ -31,14 +31,16 @@ tasks:
   test:global:
     desc: copies a global config file to expected location
     cmds:
-      - cp ./config/.neat.yaml ~/.config/.neat.yaml
+      - rm -f ~/.config/.neat.yaml
+      - cp ./config/.neat-global.yaml ~/.config/.neat.yaml
 
   test:repo:
     desc: creates a test repo at /tmp/go-neat-test
     cmds:
       - rm -rf $GIT_WORK_TREE
+      - mkdir -p $GIT_WORK_TREE
       - git init $GIT_WORK_TREE
-      - cp -a ./test/. $GIT_WORK_TREE
+      - cp ./config/.neat-repo.yaml $GIT_WORK_TREE/.neat.yaml
       - git add .
       - git commit -m 'something'
     env:

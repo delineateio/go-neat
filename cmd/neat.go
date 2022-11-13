@@ -3,10 +3,11 @@ package cmd
 import (
 	"os"
 
-	c "github.com/delineateio/go-neat/config"
 	l "github.com/delineateio/go-neat/logging"
 	"github.com/spf13/cobra"
 )
+
+const DOT_DIR = "."
 
 var neatCmd = &cobra.Command{
 	Use:   "neat",
@@ -14,7 +15,6 @@ var neatCmd = &cobra.Command{
 }
 
 func Execute() {
-	c.ReadGlobalConfig()
 	l.InitialiseLogging()
 	err := neatCmd.Execute()
 	if err != nil {

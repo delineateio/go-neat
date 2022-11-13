@@ -7,10 +7,8 @@ import (
 
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "Provides access to all 'new' commands",
-
+	Short: "Write a config file to the home directory of current user",
 	Run: func(cmd *cobra.Command, args []string) {
-
 		c.WriteGlobalInitConfig()
 	},
 }

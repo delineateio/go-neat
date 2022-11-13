@@ -40,7 +40,6 @@ func (b *GitBranches) Delete() {
 }
 
 func (b *GitBranches) DefaultBranch() *GitBranch {
-
 	for _, branch := range *b {
 		if branch.IsDefault() {
 			return &branch

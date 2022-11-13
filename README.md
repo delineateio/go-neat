@@ -112,11 +112,20 @@ git:
 # displays help for neat
 neat -h
 
+# inits the global config
+neat init
+
+# inits a repo
+neat init repo
+
 # creates a new branch in the existing repo
 neat new feature -n 'new-client-design'
 
 # creates a new branch in a different repo
 neat new feature -n 'another-feature' -p /tmp/go-neat-test
+
+# refreshes the sub directories
+neat refresh repos
 ```
 
 <!-- ROADMAP -->

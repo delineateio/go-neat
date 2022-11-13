@@ -1,3 +1,2 @@
-git:
-  branches:
-    prune: select # none | auto | select
+branches:
+  prune: none # none | auto | select
