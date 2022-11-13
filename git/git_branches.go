@@ -13,7 +13,7 @@ func NewBranches() GitBranches {
 func (b *GitBranches) NonDefaultNames() []string {
 	names := make([]string, 0, len(*b))
 	for name, branch := range *b {
-		if !branch.IsDefaultBranch {
+		if !branch.IsDefault() {
 			names = append(names, name)
 		}
 	}
@@ -40,8 +40,9 @@ func (b *GitBranches) Delete() {
 }
 
 func (b *GitBranches) DefaultBranch() *GitBranch {
+
 	for _, branch := range *b {
-		if branch.IsDefaultBranch {
+		if branch.IsDefault() {
 			return &branch
 		}
 	}

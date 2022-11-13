@@ -13,8 +13,10 @@ import (
 )
 
 type GitRepository struct {
+	Name          string
 	Path          string
 	AbsPath       string
+	Exists        bool
 	Repo          *git.Repository
 	DefaultBranch string
 }
@@ -25,11 +27,15 @@ func NewGitRepository(path string) *GitRepository {
 	e.CheckIfError(err, "failed to get the absolute path for '%s'", path)
 
 	repo, err := git.PlainOpen(absPath)
-	e.CheckIfError(err, "failed to open the repo at '%s'", absPath)
+	if err != nil {
+		log.Warn().Msg(err.Error())
+	}
 
 	info := &GitRepository{
+		Name:          strings.ToLower(filepath.Base(path)),
 		Path:          path,
 		AbsPath:       absPath,
+		Exists:        err == nil,
 		Repo:          repo,
 		DefaultBranch: c.GetString("git.branches.default"),
 	}
@@ -89,7 +95,9 @@ func (r *GitRepository) CreateBranch(branchName string) *GitBranch {
 	e.CheckIfError(err, "failed to create new branch '%s'", branchName)
 
 	branch := r.Branches().GetByName(branchName)
-	u.Successful("successfully created '%s'", branch.Name)
+	u.Successful("successfully created '%s' on '%s'",
+		branch.Name,
+		branch.Info.Name)
 	return branch
 }
 
