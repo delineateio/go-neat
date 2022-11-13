@@ -12,9 +12,9 @@ import (
 const CROSS = "\u2718"
 const NEAT_AUTOMATION = "NEAT_AUTOMATION"
 
-func NewErr(text string, elem ...string) {
-	err := fmt.Errorf(text, elem)
-	logAndExit(err, text)
+func NewErr(text string, elem ...any) {
+	err := fmt.Errorf(text, elem...)
+	logAndExit(err, err.Error())
 }
 
 func CheckIfError(err error, text string, elem ...any) {
@@ -29,8 +29,8 @@ func logAndExit(err error, text string) {
 	fmt.Println()
 
 	value := os.Getenv(NEAT_AUTOMATION)
-	isAutomation, err := strconv.ParseBool(value)
-	if err != nil || isAutomation {
+	isAutomation, _ := strconv.ParseBool(value)
+	if isAutomation {
 		os.Exit(1)
 	} else {
 		os.Exit(0)

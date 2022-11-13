@@ -34,12 +34,12 @@ func (l *logConfig) hasSink(key string) bool {
 
 func NewLogConfig() *logConfig {
 	return &logConfig{
-		sinks:      c.GetStrings("log.sinks"),
-		directory:  c.GetString("log.file.dir"),
-		filename:   c.GetString("log.file.filename"),
-		maxSize:    c.GetInt("log.file.size_mb"),
-		maxBackups: c.GetInt("log.file.backups"),
-		maxAge:     c.GetInt("log.file.age_days"),
+		sinks:      c.Config.GetStrings("log.sinks"),
+		directory:  c.Config.GetString("log.file.dir"),
+		filename:   c.Config.GetString("log.file.filename"),
+		maxSize:    c.Config.GetInt("log.file.size_mb"),
+		maxBackups: c.Config.GetInt("log.file.backups"),
+		maxAge:     c.Config.GetInt("log.file.age_days"),
 		writers:    make(map[string]io.Writer, 0),
 	}
 }
@@ -69,7 +69,7 @@ func (l *logConfig) addFile() *logConfig {
 
 func (l *logConfig) configure() *logConfig {
 
-	value := c.GetString("log.level")
+	value := c.Config.GetString("log.level")
 	level, err := zerolog.ParseLevel(value)
 	e.CheckIfError(err, "failed to parse '%s' to log level", value)
 

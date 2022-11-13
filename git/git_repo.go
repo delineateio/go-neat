@@ -37,7 +37,7 @@ func NewGitRepository(path string) *GitRepository {
 		AbsPath:       absPath,
 		Exists:        err == nil,
 		Repo:          repo,
-		DefaultBranch: c.GetString("git.branches.default"),
+		DefaultBranch: c.Config.GetString("git.branches.default"),
 	}
 	info.log()
 	return info
