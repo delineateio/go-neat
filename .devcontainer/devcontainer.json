@@ -4,9 +4,6 @@
 		"dockerfile": "Dockerfile",
 		"args": { "VARIANT": "bullseye" }
 	},
-	"mounts": [
-		"source=${env:HOME}${env:USERPROFILE}/.devcontainer.env,target=/home/vscode/.devcontainer.env,type=bind,readonly"
-  ],
 	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined", "--init" ],
 	"customizations": {
 		"vscode": {
@@ -20,7 +17,6 @@
 				"editorconfig.editorconfig",
 				"gruntfuggly.todo-tree",
 				"redhat.vscode-yaml",
-				"snyk-security.snyk-vulnerability-scanner",
 				"streetsidesoftware.code-spell-checker",
 				"tyriar.sort-lines",
 				"visualstudioexptteam.intellicode-api-usage-examples",
