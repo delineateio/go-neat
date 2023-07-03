@@ -3,7 +3,7 @@ module github.com/delineateio/go-neat
 go 1.18
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.3.6
+	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/elliotchance/orderedmap/v2 v2.2.0
 	github.com/fatih/color v1.13.0
 	github.com/go-git/go-git/v5 v5.7.0
