@@ -17,7 +17,7 @@ repos:
         args: ["--update-only"]
 
   - repo: https://github.com/gitguardian/ggshield
-    rev: v1.17.2
+    rev: v1.17.3
     hooks:
       - id: ggshield
         name: gitguardian scanning
