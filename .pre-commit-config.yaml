@@ -4,7 +4,7 @@ ci:
 repos:
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.35.0
+    rev: v0.36.0
     hooks:
       - id: markdownlint
         name: markdown linting
