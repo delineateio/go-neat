@@ -8,7 +8,7 @@ require (
 	github.com/fatih/color v1.14.1
 	github.com/go-git/go-git/v5 v5.9.0
 	github.com/rs/zerolog v1.30.0
-	github.com/spf13/cobra v1.7.0
+	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.17.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )
