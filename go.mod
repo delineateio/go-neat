@@ -6,8 +6,9 @@ require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/elliotchance/orderedmap/v2 v2.2.0
 	github.com/fatih/color v1.16.0
+
 	github.com/go-git/go-git/v5 v5.12.0
-	github.com/rs/zerolog v1.30.0
+	github.com/rs/zerolog v1.32.0
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.18.2
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
