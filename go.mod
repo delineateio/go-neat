@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/elliotchance/orderedmap/v2 v2.2.0
-	github.com/fatih/color v1.16.0
+	github.com/fatih/color v1.18.0
 	github.com/go-git/go-git/v5 v5.11.0
 	github.com/rs/zerolog v1.32.0
 	github.com/spf13/cobra v1.8.0
