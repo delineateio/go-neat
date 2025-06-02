@@ -4,7 +4,7 @@ ci:
 repos:
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.44.0
+    rev: v0.45.0
     hooks:
       - id: markdownlint
         name: markdown linting
@@ -17,7 +17,7 @@ repos:
         args: ["--update-only"]
 
   - repo: https://github.com/gitguardian/ggshield
-    rev: v1.38.1
+    rev: v1.40.0
     hooks:
       - id: ggshield
         name: gitguardian scanning
