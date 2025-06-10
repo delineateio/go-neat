@@ -1,6 +1,6 @@
 module github.com/delineateio/go-neat
 
-go 1.18
+go 1.23.0
 
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.7
@@ -14,7 +14,7 @@ require (
 )
 
 require (
-	github.com/cloudflare/circl v1.3.7 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
